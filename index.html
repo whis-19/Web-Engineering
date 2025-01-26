@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Introduction</h1>
@@ -20,6 +21,7 @@
         </nav>
     </header>
     <main>
+
         <!-- About Me Section  -->
         <section id="about">
             <h2>About me</h2>
@@ -49,8 +51,6 @@
             <audio id="song" controls>
                 Your browser does not support the audio element.
             </audio>
-
-            <!-- Added Next and Previous buttons -->
             <br>
             <button id="prevBtn">Previous</button>
             <button id="nextBtn">Next</button>
@@ -68,10 +68,15 @@
             </ul>
         </section>
 
+        <!-- Location -->
         <section id="location">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13592.70514177398!2d73.0300416!3d31.601628999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1737884152177!5m2!1sen!2s" width="600" height="450"></iframe>
+            <h2>Live Location</h2>
+            <p>Click the button to get your live location (latitude and longitude only):</p>
+            <button onclick="getLocation()">Get Location</button>
+            <p id="demo" name="demo"></p>
         </section>
-
+        
+        <!-- Contact Me -->
         <section id="contact">
             <h2>Contact Me</h2>
             <form>
@@ -90,40 +95,6 @@
     <footer>
         <p>&copy; 2025 Whis Demo Project. All rights reserved.</p>
     </footer>
-
-    <script>
-        var song = document.getElementById('song');
-        var tracks = ['Jhol.mp3', 'Ishq.mp3', 'Kabira.mp3','Kali Kali Zulfon.mp3'];
-        var currentTrack = 0;
-        var songLabel = document.getElementById('songLabel');
-
-        // Set initial song and label
-        song.src = 'songs/' + tracks[currentTrack];
-        songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
-
-        // Event listener to play next song when current one ends
-        song.addEventListener('ended', function() {
-            currentTrack = (currentTrack + 1) % tracks.length;
-            song.src = 'songs/' + tracks[currentTrack];
-            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
-            song.play();
-        });
-
-        // Handle next button click
-        document.getElementById('nextBtn').addEventListener('click', function() {
-            currentTrack = (currentTrack + 1) % tracks.length;
-            song.src = 'songs/' + tracks[currentTrack];
-            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
-            song.play();
-        });
-
-        // Handle previous button click
-        document.getElementById('prevBtn').addEventListener('click', function() {
-            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-            song.src = 'songs/' + tracks[currentTrack];
-            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
-            song.play();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
