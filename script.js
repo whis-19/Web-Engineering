@@ -26,15 +26,21 @@ document.getElementById('prevBtn').addEventListener('click', function() {
     songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
     song.play();
 });
-
-let marker;
+let userLocation = null;
 
 function getLocation() {
     const x = document.getElementById("demo");
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+
+    if (userLocation) {
+        const lat = userLocation.latitude;
+        const lng = userLocation.longitude;
+        x.innerHTML = `Latitude: ${lat}<br>Longitude: ${lng}`;
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
     }
 }
 
@@ -42,6 +48,9 @@ function showPosition(position) {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
     const x = document.getElementById("demo");
+    
+    userLocation = { latitude: lat, longitude: lng };
+    
     x.innerHTML = `Latitude: ${lat}<br>Longitude: ${lng}`;
 }
 
@@ -62,4 +71,3 @@ function showError(error) {
             break;
     }
 }
-
