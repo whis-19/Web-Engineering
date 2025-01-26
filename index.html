@@ -3,22 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Introduction</title>
 </head>
 <body>
-    <h1>This is Whis</h1>
+    <h1>Introduction</h1>
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#movie">Movie</a></li>
+                <li><a href="#library">Library</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#location">Location</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <Main>
-        <section id = "contact">
-            <h2>Say Something</h2>
+    <main>
+        <!-- About Me Section  -->
+        <section id="about">
+            <h2>About me</h2>
+            <img src="resources/me.png" alt="Muhammad Abdullah's Pic" width="200" height="200">
+            <p>
+                Hi! My name is Muhammad Abdullah and I'm a junior year from FAST NUCES<br>
+                I'm currently working on Machine Learning<br>
+                I'm looking for someone to teach me Web Development<br>
+                My major interest is AI and Automation<br>
+            </p>
+        </section>
+
+        <!-- Favorite Movie -->
+        <section id="movie">
+            <h2>Favorite Movie</h2>
+            <p>
+                One of my favorite movies is "Return of the Jedi: Theatrical Trailer 1982".<br>
+                Here's the trailer:
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7L8p7_SLzvU?si=yXteBCM8Ci0ted_l" frameborder="0"></iframe>
+        </section>
+
+        <!-- Music Library -->
+        <section id="library">
+            <h2>My favorite Songs are: </h2>
+            <p id="songLabel">Current Song: </p>
+            <audio id="song" controls>
+                Your browser does not support the audio element.
+            </audio>
+
+            <!-- Added Next and Previous buttons -->
+            <br>
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Design Architectures</li>
+                <li>Machine Learning</li>
+                <li>Version Control (Git)</li>
+                <li>Database Management</li>
+            </ul>
+        </section>
+
+        <section id="location">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13592.70514177398!2d73.0300416!3d31.601628999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1737884152177!5m2!1sen!2s" width="600" height="450"></iframe>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
             <form>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" required>
@@ -31,10 +86,44 @@
                 <button type="submit">Send</button>
             </form>
         </section>
-    </Main>
+    </main>
     <footer>
-        This is copywritted by WHIS in 2025
+        <p>&copy; 2025 Whis Demo Project. All rights reserved.</p>
     </footer>
-    
+
+    <script>
+        var song = document.getElementById('song');
+        var tracks = ['Jhol.mp3', 'Ishq.mp3', 'Kabira.mp3','Kali Kali Zulfon.mp3'];
+        var currentTrack = 0;
+        var songLabel = document.getElementById('songLabel');
+
+        // Set initial song and label
+        song.src = 'songs/' + tracks[currentTrack];
+        songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
+
+        // Event listener to play next song when current one ends
+        song.addEventListener('ended', function() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            song.src = 'songs/' + tracks[currentTrack];
+            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
+            song.play();
+        });
+
+        // Handle next button click
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            song.src = 'songs/' + tracks[currentTrack];
+            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
+            song.play();
+        });
+
+        // Handle previous button click
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+            song.src = 'songs/' + tracks[currentTrack];
+            songLabel.textContent = 'Current Song: ' + tracks[currentTrack].split('.')[0];
+            song.play();
+        });
+    </script>
 </body>
 </html>
