@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>JS INTRO</title>
+    <title>Student Course Registration</title>
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
-    <button onclick="hello()">Click Me</button>
-    <script src="../scripts/string.js"></script>
+    <h1>Student Course Registration</h1>
+
+    <div>
+        <h2>Add Student</h2>
+        <input type="text" id="studentName" placeholder="Student Name">
+        <button onclick="addStudent()">Add Student</button>
+        <ul id="studentList"></ul>
+    </div>
+
+    <div>
+        <h2>Add Course</h2>
+        <input type="text" id="courseName" placeholder="Course Name">
+        <button onclick="addCourse()">Add Course</button>
+        <ul id="courseList"></ul>
+    </div>
+ 
+    <script src="../scripts/index.js"></script>
+
 </body>
 </html>
