@@ -1,122 +1,56 @@
-let students = new Object(); 
+function fucn1() {
+  console.log(greet("Hahsim"));
+}//();
 
-function addStudent() {
-    const studentName = document.getElementById("studentName").value.toUpperCase();
-    if (!studentName) {
-        alert("Invalid student name.");
-        return;
-    }
 
-    if (students[studentName]) {
-        alert(`Student ${studentName} already exists.`);
-        return;
-    }
-
-    const studentList = document.getElementById("studentList");
-    const newLi = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = "radio";
-    checkbox.name = "students";
-    checkbox.value = studentName;
-    checkbox.onclick = () => updateCourseCheckboxes(studentName);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Drop Student";
-    deleteButton.onclick = () => dropStudent(studentName, newLi);
-
-    newLi.appendChild(checkbox);
-    newLi.appendChild(document.createTextNode(studentName));
-    newLi.appendChild(deleteButton);
-    studentList.appendChild(newLi);
-
-    students[studentName] = new Set();
-    document.getElementById("studentName").value = "";
+let greet = function meet(name="Whis"){ 
+    return `Hello, ${name}!` 
 }
 
-function addCourse() {
-    const courseName = document.getElementById("courseName").value.toUpperCase();
-    if (!courseName) {
-        alert("Invalid course name.");
-        return;
-    }
+// const hasDuplicates = arr => {
+//   const duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
+//   if (duplicates.length) console.log("Duplicated entries:", [...new Set(duplicates)]);
+//   return duplicates.length > 0;
+// };
 
-    const courseList = document.getElementById("courseList");
-    if (Array.from(courseList.children).some(li => li.textContent.includes(courseName))) {
-        alert(`Course ${courseName} already exists.`);
-        return;
-    }
+// // Example usage
+// console.log(hasDuplicates([1, 2, 3, 4, 5]));     // Output: false
+// console.log(hasDuplicates([1, 2, 3, 4, 1, 2]));  // Output: Duplicated entries: [1, 2] \n true
 
-    const newLi = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    checkbox.value = courseName;
-    checkbox.id = courseName;
-    checkbox.onclick = () => updateStudentCourses(courseName);
+// const hasDuplicates = arr => {
+//   const duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
+//   if (duplicates.length) console.log("Duplicated entries:", [...new Set(duplicates)]);
+//   return duplicates.length > 0;
+// };
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Drop Course";
-    deleteButton.onclick = () => dropCourse(courseName, newLi);
+// // Example usage
+// console.log(hasDuplicates([1, 2, 3, 4, 5]));  // Output: false
+// console.log(hasDuplicates([1, 2, 3, 4, 1, 2]));  // Output: Duplicated entries: [1, 2] \n true
 
-    newLi.appendChild(checkbox);
-    newLi.appendChild(document.createTextNode(courseName));
-    newLi.appendChild(deleteButton);
-    courseList.appendChild(newLi);
-    document.getElementById("courseName").value = "";
-}
+// const findDuplicates = arr => [...new Set(arr.filter((item, index) => arr.indexOf(item) !== index))];
 
-function updateCourseCheckboxes(studentName) {
-    const courseList = document.getElementById("courseList");
-    for (const li of courseList.children) {
-        const courseName = li.textContent.replace("Drop Course", "").trim();
-        const checkbox = li.querySelector('input[type="checkbox"]');
-        checkbox.checked = studentName && students[studentName] && students[studentName].has(courseName);
-    }
-}
-
-function updateStudentCourses(courseName) {
-    let selectedStudent = getSelectedStudent();
-    if (!selectedStudent) return;
-
-    const isChecked = document.getElementById(courseName).checked;
-    if (isChecked) {
-        students[selectedStudent].add(courseName);
-    } else {
-        students[selectedStudent].delete(courseName);
-    }
-}
-
-function getSelectedStudent() {
-    const studentList = document.getElementById("studentList");
-    for (const li of studentList.children) {
-        const radio = li.querySelector('input[type="radio"]');
-        if (radio.checked) {
-            return radio.value;
-        }
-    }
-    return null;
-}
-
-function dropStudent(studentName, studentElement) {
-    if (!confirm(`Are you sure you want to drop ${studentName} and their enrollment?`)) return;
+// // Example usage
+// const arr = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 1];
+// console.log(findDuplicates(arr)); // Output: [1, 2, 3]
 
 
-    for (const courseName of students[studentName]) {
-        const courseElement = document.getElementById(courseName);
-        if (courseElement) {
-            courseElement.checked = false;
-        }
-    }
 
-    delete students[studentName];
-    studentElement.remove();
-    updateCourseCheckboxes(null);
-}
 
-function dropCourse(courseName, courseElement) {
-    if (!confirm(`Are you sure you want to drop the course ${courseName}?`)) return;
+// let manipulator = function(value1,value2,func){
+//   return func(value1,value2);
+// }
 
-    courseElement.remove();
-    for (const student in students) {
-        students[student].delete(courseName);
-    }
-}
+
+// let multiply = function(a,b){return a*b;}
+// // console.log(manipulator(3,5,multiply))
+
+// //function inside a function is closure
+
+
+
+function counter(arr = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 1]){
+    return () => [...new Set(arr.filter((item, index) => arr.indexOf(item) !== index))];
+  }
+
+
+let increment = counter();
