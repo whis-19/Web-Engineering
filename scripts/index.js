@@ -46,11 +46,25 @@ let greet = function meet(name="Whis"){
 
 // //function inside a function is closure
 
-
+let increment = counter();
 
 function counter(arr = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 1]){
     return () => [...new Set(arr.filter((item, index) => arr.indexOf(item) !== index))];
   }
 
 
-let increment = counter();
+// function mul(...val){
+//   return val.reduce(((val+res) => res*val),1);
+// //allah malik 
+// }
+
+// asysn and await //BROCODE
+
+// async function mul(params) {
+//   await val.openfile(file);
+//   return val.reduce(((val+res) => res*val),1);
+  
+// }
+
+
+//Fucntion Generator Home task
