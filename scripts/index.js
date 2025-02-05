@@ -1,16 +1,11 @@
-// const min = 50;
-// const max = 100;
-
-// let randomNum = Math.floor(Math.random() * (max-min))  + min;
-
-// console.log(randomNum);
-
-fastFood = ['Pasta', 'Pizza', 'Burger'];
-
-fruits = ['Apple', 'Banana', 'Orange'];
-
-food = [...fastFood, ...fruits, "Karahi"];
+hello(bye);
 
 
-console.log(food);
-console.log((food.slice(0,food.indexOf('Orange'))).length);
+function hello(bye) {
+  console.log('Hello');
+  bye();
+}
+
+function bye() {
+  console.log('Bye');
+}
