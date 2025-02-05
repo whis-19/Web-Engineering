@@ -9,36 +9,21 @@
 
 //.reduce(fn): method applies a function against an accumulator and each element in the array
 
-// let numbers = [1, 2, 3, 4, 5];
 
-// function isEven(number) {
-//   return number % 2 === 0;
+// const prices = [9.99, 1.50, 19.99, 49.99, 30.50];
+
+// const total = prices.reduce(sum);
+// console.log(total);
+// function sum(acc,element){
+//     return acc + element;
 // }
 
-// function isOdd(number) {  
-//   return number % 2 !== 0;
-// }
-// let even = numbers.filter(isEven); 
-// let odd = numbers.filter(isOdd);
 
-// console.log(even); 
+const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
 
-// console.log(odd);
+const maxGrade = grades.reduce(findMaxGrade);
+console.log(maxGrade);
 
-
-// const ages = [32, 33, 16, 40];
-
-// const adults = ages.filter((age) => age >= 18);
-
-// console.log(adults);
-
-
-const fruits = ["apple", "orange", "banana", "kiwi"];
-
-function getSmallWords(fruit) {
-  return fruit.length <= 5;
+function findMaxGrade(accumulator, currentValue){
+    return Math.max(accumulator, currentValue);
 }
-
-const smallWords = fruits.filter(getSmallWords);
-
-console.log(smallWords); 
