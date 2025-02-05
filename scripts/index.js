@@ -10,20 +10,18 @@
 //.reduce(fn): method applies a function against an accumulator and each element in the array
 
 
-// const prices = [9.99, 1.50, 19.99, 49.99, 30.50];
+//setTimeout(()=>console.log("Hello"), 3000);
 
-// const total = prices.reduce(sum);
-// console.log(total);
-// function sum(acc,element){
-//     return acc + element;
-// }
+const arr = [1,2,3,4,5,6,7,8,9,10];
 
+// const squares = arr.map((num) => num*num);
 
-const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
+// console.log(squares);
 
-const maxGrade = grades.reduce(findMaxGrade);
-console.log(maxGrade);
+// const even = arr.filter((num) => num%2 === 0);
 
-function findMaxGrade(accumulator, currentValue){
-    return Math.max(accumulator, currentValue);
-}
+// console.log(even);
+
+const total = arr.reduce((acc,arr)=>arr+acc);
+
+console.log(total);
