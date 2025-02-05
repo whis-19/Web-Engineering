@@ -1,44 +1,34 @@
-// let numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 3, 4, 5];
 
 
-// numbers.forEach(displayNumber);
-// numbers.forEach(evenNumbers);
-// numbers.forEach(oddNumbers);
 
-// function displayNumber(number) {
-//     console.log(number);
+// const squares = numbers.map(square);
+// console.log(squares);
+// console.log(numbers);  
+// function square(numbers) {
+//   return Math.pow(numbers, 2);
 // }
 
-// function evenNumbers(number) {
-//     if(number % 2 === 0){
-//         console.log(number);
-//     }
+
+// const students = ["Ali","Taqi", "Faizan", "Tallal"];
+// const upperCaseStudents = students.map(upperCase);
+
+// console.log(upperCaseStudents);
+// function upperCase(element,index,array) {
+//     return element.charAt(0).toUpperCase() + element.slice(1);
+// }
+// console.log(upperCaseStudents);
+// function upperCase(element,index,array) {
+//     return element.charAt(0).toUpperCase() + element.slice(1);
 // }
 
-// function oddNumbers(number) {
-//     if(number % 2 !== 0){
-//         console.log(number);
-//     }
-// }
+const dates = ["2024-12-24", "2023-11-23", "2022-10-22", "2021-09-21"];
 
-let fruits = ['apple', 'banana', 'mango', 'orange', 'strawberry'];
+const formattedDates = dates.map(formatDate);
 
+console.log(formattedDates);
 
-fruits.forEach(capitilize);
-fruits.forEach(displayFruits);
-
-function upperCase(element,index,array) {
-    array[index] = element.toUpperCase();
-}
-
-function lowerCase(element,index,array) {
-    array[index] = element.toLowerCase();
-}
-
-function displayFruits(fruit) {
-    console.log(fruit);
-}   
-
-function capitilize(element,index,array) {
-    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+function formatDate(date) {
+    const parts = date.split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
 }
