@@ -1,34 +1,44 @@
-const numbers = [1, 2, 3, 4, 5];
+
+//.forEach(fn): method executes a provided function once for each array element.
+
+//.map(fn): method creates a new array with the results of calling a 
+// provided function on every element in the calling array.
 
 
+//.filter(fn): create new arrray by filtering out the true values from the array
 
-// const squares = numbers.map(square);
-// console.log(squares);
-// console.log(numbers);  
-// function square(numbers) {
-//   return Math.pow(numbers, 2);
+//.reduce(fn): method applies a function against an accumulator and each element in the array
+
+// let numbers = [1, 2, 3, 4, 5];
+
+// function isEven(number) {
+//   return number % 2 === 0;
 // }
 
-
-// const students = ["Ali","Taqi", "Faizan", "Tallal"];
-// const upperCaseStudents = students.map(upperCase);
-
-// console.log(upperCaseStudents);
-// function upperCase(element,index,array) {
-//     return element.charAt(0).toUpperCase() + element.slice(1);
+// function isOdd(number) {  
+//   return number % 2 !== 0;
 // }
-// console.log(upperCaseStudents);
-// function upperCase(element,index,array) {
-//     return element.charAt(0).toUpperCase() + element.slice(1);
-// }
+// let even = numbers.filter(isEven); 
+// let odd = numbers.filter(isOdd);
 
-const dates = ["2024-12-24", "2023-11-23", "2022-10-22", "2021-09-21"];
+// console.log(even); 
 
-const formattedDates = dates.map(formatDate);
+// console.log(odd);
 
-console.log(formattedDates);
 
-function formatDate(date) {
-    const parts = date.split("-");
-    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+// const ages = [32, 33, 16, 40];
+
+// const adults = ages.filter((age) => age >= 18);
+
+// console.log(adults);
+
+
+const fruits = ["apple", "orange", "banana", "kiwi"];
+
+function getSmallWords(fruit) {
+  return fruit.length <= 5;
 }
+
+const smallWords = fruits.filter(getSmallWords);
+
+console.log(smallWords); 
