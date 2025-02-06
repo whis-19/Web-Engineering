@@ -10,18 +10,17 @@
 //.reduce(fn): method applies a function against an accumulator and each element in the array
 
 
-//setTimeout(()=>console.log("Hello"), 3000);
+function func1(callback) {
+    setTimeout(() => {
+        console.log("Task 1");
+        callback();
+    }, 3000);
+}
 
-const arr = [1,2,3,4,5,6,7,8,9,10];
+function func2() {
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
 
-// const squares = arr.map((num) => num*num);
-
-// console.log(squares);
-
-// const even = arr.filter((num) => num%2 === 0);
-
-// console.log(even);
-
-const total = arr.reduce((acc,arr)=>arr+acc);
-
-console.log(total);
+func1(func2);
