@@ -1,0 +1,185 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1,
+h2,
+h3 {
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #2980b9;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #16a085;
+}
+
+/* Form Layout */
+label {
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1abc9c;
+}
+
+button:active {
+    background-color: #16a085;
+}
+
+/* Balance Section */
+#debitBalance,
+#creditBalance,
+#overallBalance {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#debitBalance,
+#creditBalance {
+    color: #e74c3c;
+    /* Red for Debit */
+}
+
+#overallBalance {
+    color: #2ecc71;
+    /* Green for Overall */
+}
+
+/* Transaction History Section */
+h2+div {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    max-width: 480px;
+    /* Limit width for each history */
+}
+
+li {
+    background-color: #ecf0f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+li:nth-child(odd) {
+    background-color: #f5f6fa;
+}
+
+/* Debit History */
+#debitHistoryList li {
+    padding-left: 15rem;
+    background-color: #e74c3c;
+    /* Red background */
+    color: white;
+    /* White text */
+}
+
+/* Credit History */
+#creditHistoryList li {
+    padding-right: 15rem;
+    background-color: #1abc9c;
+    /* Cyan-Green background */
+    color: white;
+    /* White text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+    #debitBalance,
+    #creditBalance,
+    #overallBalance {
+        font-size: 1.2rem;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    /* Stacking the lists on small screens */
+    h2+div {
+        flex-direction: column;
+        align-items: center;
+    }
+}

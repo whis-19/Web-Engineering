@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Course Registration</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Paisa Manager</title>
 </head>
+
 <body>
-    <h1>Student Course Registration</h1>
+    <h1>Record Transactions</h1>
 
+    <h2>Record Expenses</h2>
+    <label for="sourceInput" id="sourceLabel">Source: </label>
+    <input type="text" id="sourceInput">
+    <label for="amountInput" id="amountLabel">Amount: </label>
+    <input type="number" id="amountInput">
+    <button id="spendButton">Spend</button>
+    <button id="incomeButton">Income</button>
+
+    <h2>Balances</h2>
+    <label for="debitBalance" id="debitBalanceLabel">Debit Balance: </label>
+    <span id="debitBalance">0</span>
+    <label for="creditBalance" id="creditBalanceLabel">Credit Balance: </label>
+    <span id="creditBalance">0</span>
+    <label for="overallBalance" id="overallBalanceLabel">Overall Balance: </label>
+    <span id="overallBalance">0</span>
+
+    <h2>Transaction History</h2>
     <div>
-        <h2>Add Student</h2>
-        <input type="text" id="studentName" placeholder="Student Name">
-        <button onclick="addStudent()">Add Student</button>
-        <ul id="studentList"></ul>
+        <div>
+            <h3>Debit History</h3>
+            <ul id="debitHistoryList"></ul>
+        </div>
+        <div>
+            <h3>Credit History</h3>
+            <ul id="creditHistoryList"></ul>
+        </div>
     </div>
 
-    <div>
-        <h2>Add Course</h2>
-        <input type="text" id="courseName" placeholder="Course Name">
-        <button onclick="addCourse()">Add Course</button>
-        <ul id="courseList"></ul>
-    </div>
- 
-    <script src="./scripts/index.js"></script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
