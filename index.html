@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Paisa Manager</title>
+</head>
+
+<body>
+    <h1>Record Transactions</h1>
+
+    <h2>Record Expenses</h2>
+    <label for="sourceInput" id="sourceLabel">Source: </label>
+    <input type="text" id="sourceInput">
+    <label for="amountInput" id="amountLabel">Amount: </label>
+    <input type="number" id="amountInput">
+    <button id="spendButton">Spend</button>
+    <button id="incomeButton">Income</button>
+
+    <h2>Balances</h2>
+    <label for="debitBalance" id="debitBalanceLabel">Debit Balance: </label>
+    <span id="debitBalance">0</span>
+    <label for="creditBalance" id="creditBalanceLabel">Credit Balance: </label>
+    <span id="creditBalance">0</span>
+    <label for="overallBalance" id="overallBalanceLabel">Overall Balance: </label>
+    <span id="overallBalance">0</span>
+
+    <h2>Transaction History</h2>
+    <div>
+        <div>
+            <h3>Debit History</h3>
+            <ul id="debitHistoryList"></ul>
+        </div>
+        <div>
+            <h3>Credit History</h3>
+            <ul id="creditHistoryList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
