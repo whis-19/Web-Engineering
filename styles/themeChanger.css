@@ -1,0 +1,108 @@
+/* Smooth Theme Transition */
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Default Dark Theme */
+body.dark {
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+body.dark header, body.dark footer {
+    background-color: #1F1F1F;
+}
+
+body.dark .menu a {
+    color: #E0E0E0;
+}
+
+body.dark .menu a:hover {
+    background-color: #333;
+}
+
+body.dark .content {
+    background-color: #1A1A1A;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark #themeToggle {
+    background-color: #333;
+    color: white;
+}
+
+body.dark #themeToggle:hover {
+    background-color: #555;
+}
+
+/* Light Theme */
+body.light {
+    background-color: #F5F5F5;
+    color: #222;
+}
+
+body.light header, body.light footer {
+    background-color: #E0E0E0;
+}
+
+body.light .menu a {
+    color: #222;
+}
+
+body.light .menu a:hover {
+    background-color: #CCC;
+}
+
+body.light .content {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light #themeToggle {
+    background-color: #DDD;
+    color: black;
+}
+
+body.light #themeToggle:hover {
+    background-color: #BBB;
+}
+
+/* Theme Toggle Button */
+#themeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+/* Smooth Borders & Effects */
+h1 {
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}

@@ -1,122 +1,138 @@
-let students = new Object(); 
-
-function addStudent() {
-    const studentName = document.getElementById("studentName").value.toUpperCase();
-    if (!studentName) {
-        alert("Invalid student name.");
-        return;
-    }
-
-    if (students[studentName]) {
-        alert(`Student ${studentName} already exists.`);
-        return;
-    }
-
-    const studentList = document.getElementById("studentList");
-    const newLi = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = "radio";
-    checkbox.name = "students";
-    checkbox.value = studentName;
-    checkbox.onclick = () => updateCourseCheckboxes(studentName);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Drop Student";
-    deleteButton.onclick = () => dropStudent(studentName, newLi);
-
-    newLi.appendChild(checkbox);
-    newLi.appendChild(document.createTextNode(studentName));
-    newLi.appendChild(deleteButton);
-    studentList.appendChild(newLi);
-
-    students[studentName] = new Set();
-    document.getElementById("studentName").value = "";
-}
-
-function addCourse() {
-    const courseName = document.getElementById("courseName").value.toUpperCase();
-    if (!courseName) {
-        alert("Invalid course name.");
-        return;
-    }
-
-    const courseList = document.getElementById("courseList");
-    if (Array.from(courseList.children).some(li => li.textContent.includes(courseName))) {
-        alert(`Course ${courseName} already exists.`);
-        return;
-    }
-
-    const newLi = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    checkbox.value = courseName;
-    checkbox.id = courseName;
-    checkbox.onclick = () => updateStudentCourses(courseName);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "Drop Course";
-    deleteButton.onclick = () => dropCourse(courseName, newLi);
-
-    newLi.appendChild(checkbox);
-    newLi.appendChild(document.createTextNode(courseName));
-    newLi.appendChild(deleteButton);
-    courseList.appendChild(newLi);
-    document.getElementById("courseName").value = "";
-}
-
-function updateCourseCheckboxes(studentName) {
-    const courseList = document.getElementById("courseList");
-    for (const li of courseList.children) {
-        const courseName = li.textContent.replace("Drop Course", "").trim();
-        const checkbox = li.querySelector('input[type="checkbox"]');
-        checkbox.checked = studentName && students[studentName] && students[studentName].has(courseName);
-    }
-}
-
-function updateStudentCourses(courseName) {
-    let selectedStudent = getSelectedStudent();
-    if (!selectedStudent) return;
-
-    const isChecked = document.getElementById(courseName).checked;
-    if (isChecked) {
-        students[selectedStudent].add(courseName);
-    } else {
-        students[selectedStudent].delete(courseName);
-    }
-}
-
-function getSelectedStudent() {
-    const studentList = document.getElementById("studentList");
-    for (const li of studentList.children) {
-        const radio = li.querySelector('input[type="radio"]');
-        if (radio.checked) {
-            return radio.value;
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    
+    menuBtn.addEventListener('click', () => {
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'flex';
+        } else {
+            menu.style.display = 'none';
         }
-    }
-    return null;
-}
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const qaContainer = document.querySelector('.QnA ul');
 
-function dropStudent(studentName, studentElement) {
-    if (!confirm(`Are you sure you want to drop ${studentName} and their enrollment?`)) return;
-
-
-    for (const courseName of students[studentName]) {
-        const courseElement = document.getElementById(courseName);
-        if (courseElement) {
-            courseElement.checked = false;
+    // Define questions and answers
+    const qaData = [
+        {
+            question: 'What is your name?',
+            answer: 'My name is Muhammad Abdullah.'
+        },
+        {
+            question: 'What do you do?',
+            answer: 'I am a developer.'
+        },
+        {
+            question: 'What are your skills?',
+            answer: 'I have skills in web development, programming, and more.'
         }
+    ];
+
+    // Function to create QA elements
+    function createQAElements() {
+        qaData.forEach(qa => {
+            const li = document.createElement('li');
+            const questionButton = document.createElement('button');
+            questionButton.textContent = qa.question;
+            questionButton.classList.add('question');
+
+            const answerParagraph = document.createElement('p');
+            answerParagraph.textContent = qa.answer;
+            answerParagraph.classList.add('answer');
+
+            li.appendChild(questionButton);
+            li.appendChild(answerParagraph);
+            qaContainer.appendChild(li);
+        });
     }
 
-    delete students[studentName];
-    studentElement.remove();
-    updateCourseCheckboxes(null);
-}
+    createQAElements();
+});
 
-function dropCourse(courseName, courseElement) {
-    if (!confirm(`Are you sure you want to drop the course ${courseName}?`)) return;
 
-    courseElement.remove();
-    for (const student in students) {
-        students[student].delete(courseName);
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.cursor = 'none';
+
+    const cursor = document.createElement('div');
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+    cursor.style.borderRadius = '50%';
+    cursor.style.backgroundColor = 'green';
+    cursor.style.position = 'absolute';
+    cursor.style.pointerEvents = 'none';
+    cursor.style.zIndex = '1000';
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.pageX - 10}px`;
+        cursor.style.top = `${e.pageY - 10}px`;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.cursor = 'none';
+
+    // Create cursor element
+    const cursor = document.createElement('div');
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+    cursor.style.borderRadius = '50%';
+    cursor.style.backgroundColor = 'green';
+    cursor.style.position = 'absolute';
+    cursor.style.pointerEvents = 'none';
+    cursor.style.zIndex = '1000';
+    document.body.appendChild(cursor);
+
+    // Create arrow element
+    const arrow = document.createElement('div');
+    arrow.classList.add('arrow');
+    document.body.appendChild(arrow);
+
+    let lastX = 0, lastY = 0;
+    let timeout;
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.pageX - 10}px`;
+        cursor.style.top = `${e.pageY - 10}px`;
+
+        const deltaX = e.pageX - lastX;
+        const deltaY = e.pageY - lastY;
+
+        if (deltaX === 0 && deltaY === 0) return;
+
+        let directionClass = '';
+        let offsetX = 0, offsetY = 0; // Offset to move arrow away from cursor
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) { 
+            if (deltaX > 0) { // Right (0°)
+                directionClass = 'right';
+                offsetX = 25;
+            } else { // Left (180°)
+                directionClass = 'left';
+                offsetX = -25;
+            }
+        } else { 
+            if (deltaY > 0) { // Down (90°)
+                directionClass = 'down';
+                offsetY = 25;
+            } else { // Up (270°)
+                directionClass = 'up';
+                offsetY = -25;
+            }
+        }
+
+        arrow.className = `arrow ${directionClass}`;
+        arrow.style.left = `${e.pageX + offsetX}px`;
+        arrow.style.top = `${e.pageY + offsetY}px`;
+        arrow.style.display = 'block';
+
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            arrow.style.display = 'none';
+        }, 1000);
+
+        lastX = e.pageX;
+        lastY = e.pageY;
+    });
+});

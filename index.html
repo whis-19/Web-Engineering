@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Course Registration</title>
-    <link rel="stylesheet" href="./styles/index.css">
-</head>
-<body>
-    <h1>Student Course Registration</h1>
-
-    <div>
-        <h2>Add Student</h2>
-        <input type="text" id="studentName" placeholder="Student Name">
-        <button onclick="addStudent()">Add Student</button>
-        <ul id="studentList"></ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/skills.css">
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/themeChanger.css">
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <link rel="stylesheet" href="./styles/arrow.css">
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn" id="menuBtn">&#9776;</div>
+      <div class="menu" id="menu">
+        <a href="#home">Home</a>
+        <a href="#offer">Offer</a>
+        <a href="#project">Project</a>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#offer">Offer</a>
+        <a href="#project">Project</a>
+    </nav>
+    </header>
+    <div class="content">
+      <h1 id="heading">Muhammad Abdullah</h1>
+      <p id = "typeWriter"> I am <span id = "skills"><label>Hard Working</label></span></p>
     </div>
+    <div class="QnA">
+      <ul></ul>
+  </div>
+  
+  
+    <button id="themeToggle">🌙</button>
 
-    <div>
-        <h2>Add Course</h2>
-        <input type="text" id="courseName" placeholder="Course Name">
-        <button onclick="addCourse()">Add Course</button>
-        <ul id="courseList"></ul>
-    </div>
- 
+    <footer id="copyright">Copyright@2025</footer>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/themeChanger.js"></script>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/skills.js"></script>
 
-</body>
+  </body>
 </html>
