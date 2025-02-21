@@ -51,6 +51,11 @@ document.getElementById('spendButton').addEventListener('click', function () {
         return;
     }
 
+    if (debitBalance + amount > creditBalance) {
+        alert("You cannot spend more than your credit balance.");
+        return; 
+    }
+
     // Record the expense in debit
     debitBalance += amount;
     debitHistory.push({ source, amount });
